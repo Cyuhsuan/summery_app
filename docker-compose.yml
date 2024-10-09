@@ -1,0 +1,15 @@
+services:
+  langchain:
+    build: .
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - USER_AGENT=${USER_AGENT}
+    # command: python /app/main.py
+    ports:
+      - "8000:8000"
+# 啟動docker
+# docker compose run langchain 才能使用交互
